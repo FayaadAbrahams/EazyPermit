@@ -15,11 +15,12 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
             crossorigin="anonymous"></script>
+        <script src="./main.js"></script>
         <header class="header">
 
             <div class="header-1">
                 <div class="flex">
-                    <p> new <a href="login.html">login </a> | <a
+                    <p> <a href="login.html">login</a> or <a
                             href="register.html">register</a> </p>
                 </div>
             </div>
@@ -33,9 +34,10 @@
 
                     <nav class="navbar">
                         <!-- navigation links -->
-                        <a href>Dashboard</a>
+                        <a href="./dashboard.html">Dashboard</a>
                         <a href>Zoning Info</a>
                         <a href>Contact us</a>
+                        <a href>Pay Bills</a>
                     </nav>
 
                     <!-- display icons -->
@@ -54,46 +56,31 @@
         </header>
     </head>
     <body>
-        <div class="landing-page-container">
+        <div class="landing-page-container" id="page-content">
             <div class="welcome-user">
                 <div class="greet-text-holder">
-                    <h1>Hello Business Owner!</h1>
-                    <h3>Welcome to EazyPermit©</h3>
-                    <p>EazyPermit is a platfrom designed to help assist with
-                        applying for business licenses.</p>
+                    <h1>Welcome to EazyPermit©</h1>
+                    <h3>Hello, Business Owner!</h3>
+
+                    <p>EazyPermit is a platform designed to simplify and
+                        streamline the process of applying for business
+                        licenses, helping you get started quickly and
+                        easily.</p>
+
                 </div>
             </div>
             <div class="landing-btn-container">
-                <button class="get-started">Get Started</button>
+                <button class="get-started" id="openFormBtn">Get
+                    Started</button>
                 <button class="get-started">Learn More</button>
             </div>
-
-            <div class="carousel-container">
-
+            <div class="img-container">
+                <img src="./assets/img/market-1.avif" alt="market">
+                <img src="./assets/img/market-2.webp" alt="market">
+                <img src="./assets/img/market-3.avif" alt="market">
+                <img src="./assets/img/market-4.jpg" alt="market">
             </div>
-            <div id="carouselExampleSlidesOnly" class="carousel slide"
-                data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100"
-                            src="/assets/img/cape-town-backdrop.webp"
-                            alt="First slide"
-                            style="width: 100px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100"
-                            src="/assets/img/cape-town-backdrop.webp"
-                            alt="First slide"
-                            style="width: 100px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100"
-                            src="/assets/img/cape-town-backdrop.webp"
-                            alt="First slide"
-                            style="width: 100px;">
-                    </div>
-                </div>
-            </div>
+
         </div>
         <footer>
             <span>
@@ -102,5 +89,32 @@
             </span>
         </footer>
     </body>
+    <div class="choice-form" style="display: none;" id="choiceForm">
+        <button class="close-btn">
+            <img src="./assets/img/cross.svg" alt="close">
+        </button>
+        <div class="options">
 
+            <h1>What would you like to do today?</h1>
+            <div class="form-btn-container">
+                <button class="form-action-btn">
+                    <img src="./assets/img/new.svg" alt>
+                    New Licence
+                </button>
+                <button class="form-action-btn">
+                    <img src="./assets/img/edit.svg" alt>
+                    Alter Licence
+                </button>
+                <button class="form-action-btn">
+                    <img src="./assets/img/magnify.svg" alt
+                        class="magnify-icon">
+                    Track Licence Status
+                </button>
+                <button class="form-action-btn">
+                    <img src="./assets/img/chat.svg">
+                    Chat to Someone
+                </button>
+            </div>
+        </div>
+    </div>
 </html>
