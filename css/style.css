@@ -141,7 +141,7 @@ section{
    align-items: center;
    justify-content: center;
    gap:1rem;
-   background: url(../images/heading-bg.webp) no-repeat;
+   /* background: url(../images/heading-bg.webp) no-repeat; */
    background-size: cover;
    background-position: center;
    text-align: center;
@@ -175,7 +175,7 @@ section{
 
 .form-container{
    min-height: 100vh;
-   background-image: url("RegisterBackground.jpg");
+   /* background-image: url("RegisterBackground.jpg"); */
    background-size: cover;
    display: flex;
    align-items: center;
@@ -242,6 +242,7 @@ section{
 .header .header-2{
    background-color: var(--white);
    box-shadow: var(--box-shadow);
+   height: 190px;
 }
 
 .header .header-2.active{
@@ -349,7 +350,7 @@ section{
 
 .home{
    min-height: 70vh;
-   background:linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), url(children2.jpg) no-repeat;
+   /* background:linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), url(children2.jpg) no-repeat; */
    background-size: cover;
    background-position: center;
    display: flex;
