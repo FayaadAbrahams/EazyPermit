@@ -12,18 +12,37 @@
     margin: 0;
 }
 
+html,
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 body {
     background-color: var(--primary-clr);
     background-repeat: no-repeat;
     backdrop-filter: blur(4px);
+    flex: 1;
+}
+
+.landing-page-container {
+    height: 75vh;
 }
 
 .welcome-user h1 {
-    font-size: 6rem;
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.welcome-user h3 {
+    font-size: 4rem;
+    margin-top: 1vh;
 }
 
 .welcome-user p {
-    font-size: 4rem;
+    font-size: 2rem;
     margin-top: 20px;
 }
 
@@ -31,42 +50,18 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    margin-top: 1vh;
-    color: var(--background-clr);
-
-}
-
-.welcome-message-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-    align-content: center;
+    gap: 100px;
     justify-content: center;
-    margin-top: 20vh;
+    align-items: center;
+    margin-top: 10vh;
     color: var(--background-clr);
-    gap: 10px;
 }
 
 .welcome-message-container p {
     font-size: 4rem;
 }
 
-.main-logo {
-    width: 300px;
-    justify-content: flex-start;
-    margin-left: 10px;
-}
-
-.nav-bar {
-    height: 130px;
-    display: flex;
-    width: 100%;
-    background-color: var(--background-clr);
-    align-content: center;
-}
-
-.btn-container button {
+.landing-btn-container button {
     width: 250px;
     background-color: var(--secondary-clr);
     color: var(--background-clr);
@@ -76,55 +71,43 @@ body {
     font-size: 15px;
 }
 
-.btn-container button:hover {
+.landing-btn-container button:hover {
     background-color: var(--background-clr);
     color: black;
     cursor: pointer;
 }
 
-.btn-container {
+.landing-btn-container {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 10px;
-}
-
-.welcome-message-text-container {
-    background-color: var(--background-clr);
-    justify-content: flex-end;
-    background-color: inherit;
-    color: black;
-    position: fixed;
-    right: 0;
-    text-align: right;
-}
-
-.welcome-message-container,
-.welcome-message-text-container {
-    padding: 20px;
-}
-
-.backdrop {
-    /* width: 100%; */
-    height: 400px;
-    opacity: 40%;
+    margin-top: 20px;
+    position: relative;
 }
 
 .greet-text-holder {
-    position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 150px;
     text-align: center;
     justify-content: center;
     align-content: center;
 }
 
-/* .greet-text-holder h1 {
-    position: relative;
+footer {
+    width: 100%;
+    height: 100px;
+    position: static;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    background-color: #2e3235;
+    color: var(--background-clr);
 }
 
-.greet-text-holder p {
-    position: absolute;
-    bottom: 0;
-} */
+footer span {
+    font-size: 20px;
+    margin: auto;
+}
+

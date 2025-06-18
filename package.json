@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel ./*.html",
+    "start": "parcel serve landing-page.html --open",
+    "dev": "parcel serve ./*.html --open",
     "build": "parcel build ./*.html"
   },
   "keywords": [],
@@ -12,5 +13,8 @@
   "description": "",
   "devDependencies": {
     "parcel": "^2.15.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.7"
   }
 }

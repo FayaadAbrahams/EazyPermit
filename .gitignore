@@ -25,3 +25,18 @@ dist-ssr
 
 # Local Netlify folder
 .netlify
+# Node dependencies
+node_modules/
+
+# Parcel output (commonly dist)
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.parcel-cache/
+.parcel-cache/
+.parcel/
