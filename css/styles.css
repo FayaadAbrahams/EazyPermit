@@ -1,7 +1,80 @@
-* {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+:root {
+
+    --primary-clr: #ffab1f;
+    --bacground-clr: #ffff;
 }
 
-h1 {
-    font-size: 10rem;
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--primary-clr);
+
+}
+
+.welcome-user h1 {
+    font-size: 6rem;
+}
+
+.welcome-user p {
+    font-size: 4rem;
+    margin-top: 20px;
+}
+
+.welcome-user {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    color: var(--bacground-clr);
+
+}
+
+.welcome-message-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20vh;
+    color: var(--bacground-clr);
+    gap: 10px;
+}
+
+.welcome-message-container p {
+    font-size: 4rem;
+}
+
+.main-logo {
+    width: 300px;
+    justify-content: flex-start;
+    background-color: inherit;
+    margin-left: 10px;
+}
+
+.nav-bar {
+    height: 130px;
+    display: flex;
+    width: 100%;
+    background-color: var(--bacground-clr);
+    align-content: center;
+}
+
+.welcome-message-text-container {
+    background-color: var(--bacground-clr);
+    justify-content: flex-end;
+    background-color: inherit;
+    color: black;
+    position: fixed;
+    right: 0;
+    text-align: right;
+}
+
+.welcome-message-container,
+.welcome-message-text-container {
+    padding: 20px;
 }
