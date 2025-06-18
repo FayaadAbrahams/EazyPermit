@@ -1,7 +1,9 @@
 :root {
 
     --primary-clr: #ffab1f;
-    --bacground-clr: #ffff;
+    --secondary-clr: #00a7cf;
+    --background-clr: #ffff;
+
 }
 
 * {
@@ -12,7 +14,8 @@
 
 body {
     background-color: var(--primary-clr);
-
+    background-repeat: no-repeat;
+    backdrop-filter: blur(4px);
 }
 
 .welcome-user h1 {
@@ -28,8 +31,8 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    margin-top: 10vh;
-    color: var(--bacground-clr);
+    margin-top: 1vh;
+    color: var(--background-clr);
 
 }
 
@@ -41,7 +44,7 @@ body {
     align-content: center;
     justify-content: center;
     margin-top: 20vh;
-    color: var(--bacground-clr);
+    color: var(--background-clr);
     gap: 10px;
 }
 
@@ -52,7 +55,6 @@ body {
 .main-logo {
     width: 300px;
     justify-content: flex-start;
-    background-color: inherit;
     margin-left: 10px;
 }
 
@@ -60,12 +62,35 @@ body {
     height: 130px;
     display: flex;
     width: 100%;
-    background-color: var(--bacground-clr);
+    background-color: var(--background-clr);
     align-content: center;
 }
 
+.btn-container button {
+    width: 250px;
+    background-color: var(--secondary-clr);
+    color: var(--background-clr);
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 15px;
+}
+
+.btn-container button:hover {
+    background-color: var(--background-clr);
+    color: black;
+    cursor: pointer;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 .welcome-message-text-container {
-    background-color: var(--bacground-clr);
+    background-color: var(--background-clr);
     justify-content: flex-end;
     background-color: inherit;
     color: black;
@@ -78,3 +103,28 @@ body {
 .welcome-message-text-container {
     padding: 20px;
 }
+
+.backdrop {
+    /* width: 100%; */
+    height: 400px;
+    opacity: 40%;
+}
+
+.greet-text-holder {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+/* .greet-text-holder h1 {
+    position: relative;
+}
+
+.greet-text-holder p {
+    position: absolute;
+    bottom: 0;
+} */
