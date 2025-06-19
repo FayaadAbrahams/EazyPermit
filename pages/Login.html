@@ -1,46 +1,65 @@
 
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>login</title>
-        <!-- Stylesheet template -->
-        <link rel ="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>login</title>
+      <!-- Stylesheet template -->
+      <link rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        <!-- stlyesheet custom -->
+      <!-- stlyesheet custom -->
 
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="validation.js"></script>
+      <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../css/styles.css">
+      <script src="validation.js"></script>
 
-        <header class="header">
-   <div class="header-2">
-   
-      <div class="flex">
-      <img  width="230px" height="201px" src = "./assets/img/cct-logo.svg" type="images/jpg" alt = "CCT Logo"/>
-         <a href="Dashboard.html" class="logo" ></a>
-         
-                                                        
-<!-- display icons ?-->
-    
+      <header class="header">
+         <div class="header-1">
+            <div class="flex">
+               <img src="../assets/img/profile.svg" alt>
+               <p>
+                  <a href="login.html">login /</a>
+                  <a href="register.html">register</a>
+               </p>
+            </div>
+         </div>
+
+         <div class="header-2">
+            <a href="landing-page.html" class="logo">
+               <img width="230px" height="201px"
+                  src="../assets/img/cct-logo.svg" type="images/jpg"
+                  alt="CCT Logo" />
+            </a>
+
+            <nav class="navbar">
+               <!-- navigation links -->
+               <a href="/pages/dashboard.html">Dashboard</a>
+               <a href>Zoning Info</a>
+               <a href>Contact us</a>
+               <a href>Pay Bills</a>
+            </nav>
+            <div class="user-box">
+            </div>
+         </div>
+      </header>
+   </head>
+   <body>
+
+      <div class="form-container">
+
+         <form name="register" action method="post"
+            onsubmit="return validateForm();">
+            <h3>Login</h3>
+            <input type="email" name="email" id="email"
+               placeholder="enter your email" class="box">
+            <input type="password" name="password" id="password"
+               placeholder="enter your password" class="box">
+            <input type="submit" name="submit" value="Login now" class="btn">
+            <p>Don't have an account? <a href="Register.html">Register</a></p>
+         </form>
+
       </div>
-   </div>
-
-</header>
-</head>
-<body>
-    
-<div class="form-container">
-
-<form name="register" action="" method="post" onsubmit = "return validateForm();">
-   <h3>Login</h3>
-   <input type="email" name="email" id="email" placeholder="enter your email" class="box">
-   <input type="password" name="password" id="password" placeholder="enter your password" class="box">
-   <input type="submit" name="submit" value="Login now" class="btn">
-   <p>Don't have an account? <a href="Register.html">Register</a></p>
-</form>
-
-</div>
-</body>
+   </body>
 </html>
