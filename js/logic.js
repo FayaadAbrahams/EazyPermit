@@ -25,8 +25,8 @@ function runLandingPage() {
     });
 }
 
-function runRegisterPage() {
-    console.log("Hello!");
+function dashboard() {
+    // console.log("Hello!");
 }
 
-export { runLandingPage, runRegisterPage };
+export { runLandingPage, dashboard };
