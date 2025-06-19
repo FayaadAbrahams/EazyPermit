@@ -1,13 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
-    <div class="heading">
-   <h3>contact us</h3>
-</div>
+   <head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>contact</title>
 
-<section>
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+   <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+      /* Center the chatbot section */
 
-</section>
-</body>
+      section {
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Chatbot container */
+#chatbot {
+  background-color: rgb(109, 109, 122);
+  width: 100%;
+  max-width: 1000px;
+  max-height: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Chatbox area */
+#chatbox {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Messages */
+.message {
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 80%;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* Bot message */
+.message.bot {
+  background-color: #e9ecef;
+  color: #333;
+  align-self: flex-start;
+}
+
+/* User message */
+.message.user {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+/* Input field */
+#userInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Optional: Make input area sticky at bottom if chat grows */
+#chatbot input {
+  margin-top: 10px;
+}
+
+    </style>
+   <header class="header">
+
+<div class="header-1">
+      <div class="flex">
+         <p> new <a href="login.html">login </a>  |  <a href="register.html">register</a> </p>
+      </div>
+   </div>
+
+   <div class="header-2">
+   
+      <div class="flex">
+      <img  width="230px" height="201px" src = "./assets/img/cct-logo.svg" type="images/jpg" alt = "CCT Logo"/>
+         <a href="landing-page.html" class="logo" ></a>
+         
+                                                     
+                 
+         <nav class="navbar">
+        <!-- navigation links -->
+            <a href="Dashboard.html">Applications Dashboard</a>
+            <a href="ZoningPage.html">Zoning Info</a>
+            <a href="contact page.html">Contact us</a>
+         </nav>
+
+   
+      </div>
+   </div>
+
+</header>
+
+</head>
+ <body>
+      <div class="heading">
+         <h3>Identify and Understand Your Zoning Property</h3>
+         <div id="link-container">
+            <p>📍 You can view the zoning map here:</p>
+            <a href="https://citymaps.capetown.gov.za/EGISViewer/" target="_blank" rel="noopener noreferrer" style="font-size: 3em; color: #0056b3; text-decoration: underline;">
+              City of Cape Town Zoning Map
+            </a>
+         </div>
+      </div>
+
+      <section>
+         <div id="chatbot">
+            <div id="chatbox"></div>
+            <input id="userInput" placeholder="Type your message here..." autocomplete="off" />
+         </div>
+      </section>
+    
+
+     <script>
+  const zoningTypes = {
+    "Single Residential": {
+      short: "Low-to-medium density homes with limited home employment allowed.",
+      details: `
+🏡 Single Residential<br>
+- Primarily single-family homes in low-to-medium density areas.<br>
+- Allows limited home employment, additional dwellings, and low-intensity mixed-use.<br>
+- Provides a safe, pleasant residential environment.<br>
+`
+    },
+    "General Residential": {
+      short: "Higher-density urban living with limited mixed-use.",
+      details: `
+🏢 General Residential<br>
+- Supports medium to high-density living (e.g., flats, townhouses).<br>
+- Encourages urban growth and avoids sprawl.<br>
+- Allows some mixed-use and home-based businesses with restrictions.<br>
+- Development intensity varies by sub-zoning.<br>
+`
+    },
+    "Community": {
+      short: "Zoning for educational, religious, welfare, and health services.",
+      details: `
+🏥 Community (CO1 & CO2)<br>
+- For schools, churches, clinics, and community centers.<br>
+- CO1 serves local community needs.<br>
+- CO2 serves wider regional needs and may allow larger buildings.<br>
+- Encourages attractive, focal buildings.<br>
+`
+    },
+    "Local Business": {
+      short: "Shops and offices in neighbourhood areas with controlled retail.",
+      details: `
+🏪 Local Business<br>
+- For neighbourhood shops, offices, and low-impact retail.<br>
+- Provides buffer between busy business districts and homes.<br>
+- Larger or high-impact retail is restricted or needs consent.<br>
+`
+    },
+    "General Business and Mixed-use": {
+      short: "Broad economic development with residential, business and some industrial.",
+      details: `
+🏬 General Business & Mixed-use<br>
+- Mixes residential, business, and some light industrial uses.<br>
+- Common in development corridors and town centers.<br>
+- Requires careful planning to minimize residential-industrial conflicts.<br>
+`
+    },
+    "Industrial": {
+      short: "For manufacturing, including general and hazardous industry.",
+      details: `
+🏭 Industrial<br>
+- For factories, warehouses, and heavy-duty production.<br>
+- Includes general and hazardous industries.<br>
+- Requires good infrastructure (roads, waste).<br>
+- Should be separate from residential areas.<br>
+`
+    },
+    "Utility, Transport, National Port": {
+      short: "Used for public transport, utilities, and national port activities.",
+      details: `
+🚉 Utility, Transport & National Port<br>
+- For public services like power stations, roads, railways, and harbours.<br>
+- Zoning based on function, not ownership.<br>
+- May allow mixed-use if it doesn’t interfere with operations.<br>
+- Port zones governed by the National Ports Act.<br>
+`
+    },
+    "Open Space": {
+      short: "Includes parks, nature reserves, and recreation areas.",
+      details: `
+🌳 Open Space<br>
+- Parks, sports fields, nature reserves, and recreational areas.<br>
+- Important for community wellbeing and biodiversity protection.<br>
+`
+    },
+    "Agricultural, Rural and Limited Use": {
+      short: "For farming and rural preservation; limits urban encroachment.",
+      details: `
+🌾 Agricultural, Rural & Limited Use<br>
+- Protects farming land and rural lifestyle.<br>
+- AG = large farms, RU = smallholdings, LU = undetermined land.<br>
+- Permits activities supporting agriculture.<br>
+`
+    }
+  };
+
+  const chatbox = document.getElementById('chatbox');
+  const input = document.getElementById('userInput');
+  let step = 0;
+
+  // Helper: List zoning types with numbers
+  function getZoningList() {
+    return Object.keys(zoningTypes)
+      .map((key, i) => `${i + 1}. <strong>${key}</strong> — ${zoningTypes[key].short}`)
+      .join('<br>');
+  }
+
+  // Helper: Parse input (number or zoning name)
+  function parseZoningInput(input) {
+    const names = Object.keys(zoningTypes);
+    const num = parseInt(input);
+    if (!isNaN(num) && num >= 1 && num <= names.length) {
+      return names[num - 1];
+    }
+    return names.find(name => name.toLowerCase() === input.toLowerCase()) || null;
+  }
+
+  function addMessage(text, sender = 'bot') {
+    const div = document.createElement('div');
+    div.classList.add('message', sender);
+    div.innerHTML = text;
+    chatbox.appendChild(div);
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  function startChat() {
+    addMessage("Hi! 👋 Do you know your property's zoning? (Type 'yes' or 'no')");
+    step = 1;
+  }
+
+  function handleStep(inputText) {
+    const text = inputText.trim().toLowerCase();
+
+    if (step === 1) {
+      if (text === 'yes') {
+        addMessage("Great! You can type the zoning type or number, or type 'list' to see options.");
+        step = 2;
+      } else if (text === 'no') {
+        addMessage("You can view the official zoning map here: <a href='https://citymaps.capetown.gov.za/EGISViewer/' target='_blank'>City of Cape Town Zoning Map</a>");
+        addMessage("Once you know it, type it here or type 'list' to see all zoning types.");
+        step = 2;
+      } else {
+        addMessage("Please reply with 'yes' or 'no' 😊");
+      }
+    } else {
+      if (text === 'zoning map') {
+        addMessage("Here's the map: <a href='https://citymaps.capetown.gov.za/EGISViewer/' target='_blank'>City of Cape Town Zoning Map</a>");
+      } else if (text === 'list' || text === 'zoning types') {
+        addMessage("Here are the zoning types:<br>" + getZoningList());
+        addMessage("Type the number or name of one to learn more.");
+      } else {
+        const zoningName = parseZoningInput(text);
+        if (zoningName) {
+          addMessage(zoningTypes[zoningName].details);
+        } else {
+          addMessage("Sorry, I didn't understand. Try typing 'list' or your zoning name.");
+        }
+      }
+    }
+  }
+
+  // Initial greeting
+  startChat();
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && input.value.trim() !== '') {
+      const userText = input.value.trim();
+      addMessage(userText, 'user');
+      input.value = '';
+      setTimeout(() => handleStep(userText), 300);
+    }
+  });
+</script>
+
+   </body>
 </html>
