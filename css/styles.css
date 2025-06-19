@@ -505,3 +505,8 @@ footer span {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.action-card a {
+    color: white;
+    text-decoration: none;
+}
