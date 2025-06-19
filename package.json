@@ -1,5 +1,5 @@
 {
-  "name": "business-app",
+  "name": "eazy-permit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "devDependencies": {
-    "vite": "^7.0.0-beta.1"
+  "dependencies": {
+    "vite": "^6.3.5"
   }
 }

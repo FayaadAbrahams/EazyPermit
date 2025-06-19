@@ -7,25 +7,12 @@
 }
 
 
-@font-face {
-    font-family: "Century Gothic";
-    src: url('../assets/fonts/centurygothic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
-* {
-    padding: 0;
-    margin: 0;
-}
-
-html,
 body {
-    display: flex;
-    flex-direction: column;
-    font-family: "Century Gothic", sans-serif;
+    font-family: 'Rubik', sans-serif;
 
 }
+
 
 
 
@@ -104,7 +91,7 @@ body {
     align-content: center;
 }
 
-.greet-text-holder p{
+.greet-text-holder p {
     width: 900px;
 }
 
@@ -178,7 +165,7 @@ footer span {
 .blur {
     filter: blur(8px);
     pointer-events: none;
-  }
+}
 
 .close-btn {
     width: 30px;
