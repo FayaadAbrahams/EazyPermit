@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Business License Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .progress-step {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #e0e0e0;
+      color: #555;
+      margin: 0 5px;
+      transition: background-color 0.3s;
+    }
+
+    .progress-step.active {
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    select, input[type="file"], input[type="text"], input[type="month"] {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 5px;
+      margin-bottom: 8px;
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .card-section input {
+      margin-top: 3px;
+    }
+
+    button {
+      background-color: #4aa7e6;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Progress Steps -->
+  <div class="progress-bar">
+    <div class="progress-step active" id="step-label-1">Bank Details</div>
+    <div class="progress-step" id="step-label-2">Proof of Payment</div>
+  </div>
+
+  <!-- Step 1: Bank Info -->
+  <div id="step-1">
+    <h2>Payment Information</h2>
+    <p>Please make separate payments to the relevant departments using the methods below. Ensure you keep your proof of payment for each.</p>
+   
+    <ul>
+      <li><strong>Cash, Debit, Credit Card:</strong> Accepted at our offices. No bank charges on single payments ≤ R7000.</li>
+      <li><strong>Direct Deposit (ABSA Bank):</strong> Use your 9-digit reference number on the deposit slip.</li>
+      <li><strong>Electronic Funds Transfer (EFT):</strong> Select <strong>City of Cape Town</strong> as the listed beneficiary and use your 9-digit reference number.</li>
+    </ul>
+
+    <h3>Bank Account Details</h3>
+    <table>
+      <tr>
+        <th>Field</th>
+        <th>Details</th>
+      </tr>
+      <tr>
+        <td>Bank Name</td>
+        <td>ABSA Bank</td>
+      </tr>
+      <tr>
+        <td>Branch Code</td>
+        <td>632005</td>
+      </tr>
+      <tr>
+        <td>Account Type</td>
+        <td>Current</td>
+      </tr>
+      <tr>
+        <td>Account Name</td>
+        <td>City of Cape Town Licensing</td>
+      </tr>
+      <tr>
+        <td>Account Number</td>
+        <td>1234567890</td>
+      </tr>
+      <tr>
+        <td>Reference Number</td>
+        <td>Use your 9-digit application reference number (e.g., <strong>BL-202500123</strong>)</td>
+      </tr>
+    </table>
+
+    <div class="button-group">
+      <span></span>
+      <button type="button" onclick="nextStep()">Next</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Uploads -->
+  <div id="step-2" class="hidden">
+    <h2>Upload Proof of Payments</h2>
+
+    <div class="progress-bar" id="paymentProgress" style="margin-bottom:20px;">
+      <div class="progress-step" id="progress-health">Health</div>
+      <div class="progress-step" id="progress-fire">Fire</div>
+      <div class="progress-step" id="progress-zoning">Zoning</div>
+      <div class="progress-step" id="progress-waste">Waste</div>
+    </div>
+
+    <form id="paymentForm">
+      <table>
+        <thead>
+          <tr>
+            <th>Department</th>
+            <th>Amount</th>
+            <th>Reference</th>
+            <th>Method</th>
+            <th>Card Details (if Card selected)</th>
+            <th>Proof of Payment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Health -->
+          <tr>
+            <td>Health Department</td>
+            <td>R300</td>
+            <td>123456789-H</td>
+            <td>
+              <select name="methodHealth" required onchange="toggleCardFields(this, 'health')">
+                <option value="">Select</option>
+                <option>Card</option>
+                <option>EFT</option>
+              </select>
+            </td>
+            <td>
+              <div class="card-section hidden" id="card-health">
+                <input type="text" name="healthCardName" placeholder="Cardholder Name" />
+                <input type="text" name="healthCardNumber" maxlength="16" placeholder="Card Number" />
+                <input type="month" name="healthCardExpiry" />
+                <input type="text" name="healthCardCVV" maxlength="3" placeholder="CVV" />
+              </div>
+            </td>
+            <td><input type="file" name="proofHealth" accept=".pdf,image/*" required onchange="markCompleted('health')"></td>
+          </tr>
+
+          <!-- Fire Safety -->
+          <tr>
+            <td>Fire Safety</td>
+            <td>R250</td>
+            <td>123456789-F</td>
+            <td>
+              <select name="methodFire" required onchange="toggleCardFields(this, 'fire')">
+                <option value="">Select</option>
+                <option>Card</option>
+                <option>EFT</option>
+              </select>
+            </td>
+            <td>
+              <div class="card-section hidden" id="card-fire">
+                <input type="text" name="fireCardName" placeholder="Cardholder Name" />
+                <input type="text" name="fireCardNumber" maxlength="16" placeholder="Card Number" />
+                <input type="month" name="fireCardExpiry" />
+                <input type="text" name="fireCardCVV" maxlength="3" placeholder="CVV" />
+              </div>
+            </td>
+            <td><input type="file" name="proofFire" accept=".pdf,image/*" required onchange="markCompleted('fire')"></td>
+          </tr>
+
+          <!-- Zoning & Planning -->
+          <tr>
+            <td>Zoning & Planning</td>
+            <td>R200</td>
+            <td>123456789-Z</td>
+            <td>
+              <select name="methodZoning" required onchange="toggleCardFields(this, 'zoning')">
+                <option value="">Select</option>
+                <option>Cash</option>
+                <option>Card</option>
+                <option>EFT</option>
+              </select>
+            </td>
+            <td>
+              <div class="card-section hidden" id="card-zoning">
+                <input type="text" name="zoningCardName" placeholder="Cardholder Name" />
+                <input type="text" name="zoningCardNumber" maxlength="16" placeholder="Card Number" />
+                <input type="month" name="zoningCardExpiry" />
+                <input type="text" name="zoningCardCVV" maxlength="3" placeholder="CVV" />
+              </div>
+            </td>
+            <td><input type="file" name="proofZoning" accept=".pdf,image/*" required onchange="markCompleted('zoning')"></td>
+          </tr>
+
+          <!-- Waste Management -->
+          <tr>
+            <td>Waste Management</td>
+            <td>R100</td>
+            <td>123456789-W</td>
+            <td>
+              <select name="methodWaste" required onchange="toggleCardFields(this, 'waste')">
+                <option value="">Select</option>
+                <option>Cash</option>
+                <option>Card</option>
+                <option>EFT</option>
+              </select>
+            </td>
+            <td>
+              <div class="card-section hidden" id="card-waste">
+                <input type="text" name="wasteCardName" placeholder="Cardholder Name" />
+                <input type="text" name="wasteCardNumber" maxlength="16" placeholder="Card Number" />
+                <input type="month" name="wasteCardExpiry" />
+                <input type="text" name="wasteCardCVV" maxlength="3" placeholder="CVV" />
+              </div>
+            </td>
+            <td><input type="file" name="proofWaste" accept=".pdf,image/*" required onchange="markCompleted('waste')"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="button-group">
+        <button type="button" onclick="prevStep()">Back</button>
+        <button type="submit">Submit All Payments</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function nextStep() {
+    document.getElementById('step-1').classList.add('hidden');
+    document.getElementById('step-2').classList.remove('hidden');
+    document.getElementById('step-label-1').classList.remove('active');
+    document.getElementById('step-label-2').classList.add('active');
+  }
+
+  function prevStep() {
+    document.getElementById('step-2').classList.add('hidden');
+    document.getElementById('step-1').classList.remove('hidden');
+    document.getElementById('step-label-2').classList.remove('active');
+    document.getElementById('step-label-1').classList.add('active');
+  }
+
+  function markCompleted(dept) {
+    const step = document.getElementById(`progress-${dept}`);
+    if (step) {
+      step.classList.add('active');
+    }
+  }
+
+  function toggleCardFields(selectEl, id) {
+    const selected = selectEl.value;
+    const section = document.getElementById(`card-${id}`);
+    if (selected === 'Card') {
+      section.classList.remove('hidden');
+    } else {
+      section.classList.add('hidden');
+    }
+  }
+
+  document.getElementById('paymentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you! All proof of payments have been submitted.');
+    window.location.href = 'dashboard.html'; // Change this to your actual dashboard page URL
+  });
+</script>
+
+</body>
+</html>
