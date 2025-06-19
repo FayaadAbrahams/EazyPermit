@@ -107,8 +107,22 @@
         <h2>Step 1: License Types</h2>
 
          <!-- Step 2 -->
+<label>Type of Licence(s) Applied For</label>
+  <select name="licenseType" required>
+    <option value="">-- Select License Type --</option>
+    <option value="Sale or supply of Meals">Sale or supply of Meals</option>
+    <option value="Hawking in Meals">Hawking in Meals</option>
+    <option value="Health Facility">Health Facility (Turkish baths, saunas or health baths)</option>
+    <option value="Massage or Infra-Red Treatment">Massage or Infra-Red Treatment</option>
+    <option value="Escort Services">Escort Services</option>
+    <option value="Games (3 or more)">Mechanical, Electrical Apparatus or Devices (Games) 3 or more</option>
+    <option value="Snooker or Billiard Tables">Snooker or Billiard Tables</option>
+    <option value="Cinema or Theatre">Cinema or Theatre</option>
+    <option value="Adult Shop">Adult Shop</option>
+    <option value="Night Club or Discotheque">Night Club or Discotheque</option>
+  </select>
 
-        <h2>Step 2: Personal & Business Info</h2>
+        <h2>Step 2: Personal Info</h2>
 
         <label>Full Name of Applicant</label>
         <input type="text" name="ownerName" required />
@@ -128,15 +142,6 @@
         <label>Contact Email</label>
         <input type="email" name="email" required />
 
-        <label>Trade Name of Business</label>
-        <input type="text" name="businessName" required />
-
-        <label>Street Address of Business</label>
-        <input type="text" name="businessAddress" required />
-
-        <label>ERF Number</label>
-        <input type="number" name="erf" required />
-
         <div class="button-group">
           <span></span>
           <button type="button" onclick="nextStep()">Next</button>
@@ -146,21 +151,17 @@
       <!-- Step 3 -->
       <div class="form-step">
         <h2>Step 3: Business Details</h2>
+        
+        <label>Trade Name of Business</label>
+        <input type="text" name="businessName" required />
 
-        <label>Business Type</label>
-        <select name="businessType" required>
-          <option value="">-- Select --</option>
-          <option>Retail</option>
-          <option>Food Service</option>
-          <option>Consulting</option>
-          <option>Manufacturing</option>
-          <option>Other</option>
-        </select>
-
-        <label>Business Address (Postal)</label>
+        <label>Street Address of Business</label>
         <textarea name="postalAddress" required></textarea>
 
-        <label>Zoning Code (if known)</label>
+        <label>ERF Number</label>
+        <input type="number" name="erf" required />
+
+        <label>Zoning Code or Type (if known)</label>
         <input type="text" name="zoningCode" />
 
         <label>Brief Description of Activities</label>
@@ -176,14 +177,17 @@
       <div class="form-step">
         <h2>Step 3: Supporting Docs & Declaration</h2>
 
-        <label>10. Was the applicant a holder of a hawker licence which was withdrawn in the twelve months preceding this application?</label>
-        <label><input type="radio" name="hawkerWithdrawn" value="Yes" required> Yes</label>
-        <label><input type="radio" name="hawkerWithdrawn" value="No"> No</label>
+    <label>10. Was the applicant a holder of a hawker licence which was withdrawn in the twelve months preceding this application?</label><br>
+    <select>
+        <option value = "Yes">Yes</option>
+        <option value = "No">No</option>
+    </select>
+
 
         <label>11. Please upload the following documents:</label>
         <ul>
           <li>Land Use Clearance</li>
-          <input type="file" name="landUseClearance" required>
+          <input type="file" name="landUseClearance">
 
           <li>ID/Passport of Owner</li>
           <input type="file" name="ownerID" required>
@@ -192,29 +196,34 @@
           <input type="file" name="directorID" required>
 
           <li>Fire Clearance Certificate</li>
-          <input type="file" name="fireClearance" required>
+          <input type="file" name="fireClearance">
 
           <li>Certificate of Acceptability Application</li>
           <input type="file" name="acceptabilityCert" required>
 
           <li>Approved Building Layout Plan</li>
-          <input type="file" name="buildingPlan" required>
+          <input type="file" name="buildingPlan">
         </ul>
+        
+        <label>12.  Has a Liquor Licence been issued for the premises in question?</label><br>
+    <select>
+        <option value = "Yes">Yes</option>
+        <option value = "No">No</option>
+        <option value = "N/A">N/A</option>
+    </select>
 
-        <label>12. Has a Liquor Licence been issued for the premises?</label>
-        <label><input type="radio" name="liquorIssued" value="Yes" required> Yes</label>
-        <label><input type="radio" name="liquorIssued" value="No"> No</label>
-        <label><input type="radio" name="liquorIssued" value="N/A"> N/A</label>
+    <label> 13. Has a Liquor Licence been applied for in respect of the premises in question?</label><br>
+    <select>
+        <option value = "Yes">Yes</option>
+        <option value = "No">No</option>
+        <option value = "N/A">N/A</option>
+    </select>
 
-        <label>13. Has a Liquor Licence been applied for?</label>
-        <label><input type="radio" name="liquorApplied" value="Yes" required> Yes</label>
-        <label><input type="radio" name="liquorApplied" value="No"> No</label>
-        <label><input type="radio" name="liquorApplied" value="N/A"> N/A</label>
+        <label>I,<input type="text" name="applicantName" placeholder="Your full name" required>, certify that the above information is true and correct to the best of my knowledge.</label>
 
-        <label>I, <input type="text" name="applicantName" placeholder="Your full name" required>, certify that the above information is true and correct to the best of my knowledge.</label>
+        <label>Signature of Applicant (Upload an image)</label>
+        <input type="file" name="signature" accept="image/*" required />
 
-        <label>Signature of Applicant</label>
-        <input type="text" name="signature" placeholder="Type your full name" required>
 
         <label>Capacity of Applicant (e.g. Owner, Manager)</label>
         <input type="text" name="capacity" required>
@@ -228,9 +237,10 @@
         <input type="date" name="applicationDate" required>
 
         <div class="button-group">
-          <button type="button" onclick="prevStep()">Previous</button>
-          <button type="submit">Submit Application</button>
-        </div>
+  <button type="button" onclick="prevStep()">Previous</button>
+  <button type="submit" id="submitBtn">Submit Application</button>
+</div>
+
       </div>
     </form>
   </div>
@@ -266,6 +276,18 @@
       alert('Application submitted successfully!');
       // You can handle file uploads on backend (e.g. with PHP/Node)
     });
+    
+  const form = document.getElementById('multiStepForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Show thank you message
+    alert('Thank you for your application! You will now be redirected to the dashboard.');
+
+    // Redirect after message
+    window.location.href = 'dashboard.html';
+  });
   </script>
 
 </body>
