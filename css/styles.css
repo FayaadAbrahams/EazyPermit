@@ -3,13 +3,10 @@
     --primary-clr: #ffab1f;
     --secondary-clr: #00a7cf;
     --background-clr: #ffff;
-
 }
 
-body {
-    font-family: 'Rubik', sans-serif;
 
-}
+
 
 body {
     background-color: var(--primary-clr);
@@ -25,6 +22,7 @@ body {
 .welcome-user h1 {
     font-size: 7rem;
     font-weight: bold;
+
 }
 
 .welcome-user h3 {
@@ -91,10 +89,12 @@ body {
 }
 
 footer {
+    margin-top: 200px;
     width: 100%;
     height: 100px;
     position: static;
     bottom: 0;
+    left: 0;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -201,7 +201,7 @@ footer span {
     gap: 10px;
 }
 
-.form-action-btn:hover  img{
+.form-action-btn:hover img {
     filter: brightness(0) saturate(100%) invert(0%) sepia(43%) saturate(3467%) hue-rotate(34deg) brightness(95%) contrast(106%);
 
 }
@@ -316,7 +316,7 @@ footer span {
 }
 
 .stats-grid p {
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .stat-card {

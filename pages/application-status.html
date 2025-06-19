@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eazy Permit</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+        <script type="module" src="./js/main.js"></script>
+        <header class="header">
+            <div class="header-1">
+                <div class="flex">
+                    <img src="./assets/img/profile.svg" alt>
+                    <p>
+                        <a href="login.html">login /</a>
+                        <a href="register.html">register</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="header-2">
+                <a href="landing-page.html" class="logo">
+                    <img width="230px" height="201px"
+                        src="../assets/img/cct-logo.svg" type="images/jpg"
+                        alt="CCT Logo" />
+                </a>
+
+                <nav class="navbar">
+                    <!-- navigation links -->
+                    <a href="/pages/dashboard.html">Dashboard</a>
+                    <a href>Zoning Info</a>
+                    <a href>Contact us</a>
+                    <a href>Pay Bills</a>
+                </nav>
+
+                <!-- display icons -->
+                <div class="icons">
+                    <div id="menu-btn" class="fas fa-bars"></div>
+                    <a href class="fas fa-search"></a>
+                    <div id="user-btn" class="fas fa-user"></div>
+                </div>
+                <div class="user-box">
+                </div>
+            </div>
+        </header>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Application Status Tracker</h1>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>License Type</th>
+                            <th>Status</th>
+                            <th>Payment Required</th>
+                            <th>Expiry Date</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="license-type">Business Registration
+                                    Certificate</div>
+                                <div class="license-description">CIPC company
+                                    registration certificate</div>
+                            </td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                                <div class="payment-status paid">
+                                    <span class="icon">💳</span>
+                                    R175 - Paid
+                                </div>
+                            </td>
+                            <td class="expiry-date">N/A (Permanent)</td>
+                            <td><button class="download-btn"
+                                    onclick="downloadLicense('business-cert')">Download
+                                    PDF</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="license-type">Trading License</div>
+                                <div class="license-description">Municipal
+                                    trading license for retail business</div>
+                            </td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                                <div class="payment-status paid">
+                                    <span class="icon">💳</span>
+                                    R850 - Paid
+                                </div>
+                            </td>
+                            <td class="expiry-date">2025-12-31</td>
+                            <td><button class="download-btn"
+                                    onclick="downloadLicense('trading-license')">Download
+                                    PDF</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="license-type">Liquor License</div>
+                                <div class="license-description">On-consumption
+                                    liquor license for restaurant</div>
+                            </td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>
+                                <div class="payment-status unpaid">
+                                    <span class="icon">⏳</span>
+                                    R2,500 - Unpaid
+                                </div>
+                            </td>
+                            <td class="expiry-date">Pending Approval</td>
+                            <td><button class="download-btn" disabled>Not
+                                    Available</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="license-type">Food Handler's
+                                    Certificate</div>
+                                <div class="license-description">Health
+                                    department food safety certificate</div>
+                            </td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                                <div class="payment-status paid">
+                                    <span class="icon">💳</span>
+                                    R120 - Paid
+                                </div>
+                            </td>
+                            <td class="expiry-date expiry-soon">2025-08-15</td>
+                            <td><button class="download-btn"
+                                    onclick="downloadLicense('food-handler')">Download
+                                    PDF</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="license-type">Tax Clearance
+                                    Certificate</div>
+                                <div class="license-description">SARS tax
+                                    compliance certificate</div>
+                            </td>
+                            <td><span class="status expired">Expired</span></td>
+                            <td>
+                                <div class="payment-status free">
+                                    <span class="icon">✅</span>
+                                    Free
+                                </div>
+                            </td>
+                            <td class="expiry-date">2025-03-31</td>
+                            <td><button class="download-btn"
+                                    disabled>Expired</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="license-type">Environmental Impact
+                                    Assessment</div>
+                                <div class="license-description">Department of
+                                    Environmental Affairs approval</div>
+                            </td>
+                            <td><span class="status draft">Draft</span></td>
+                            <td>
+                                <div class="payment-status unpaid">
+                                    <span class="icon">⏳</span>
+                                    R1,200 - Unpaid
+                                </div>
+                            </td>
+                            <td class="expiry-date">Not Submitted</td>
+                            <td><button class="download-btn" disabled>Not
+                                    Available</button></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="license-type">Labour Relations
+                                    Certificate</div>
+                                <div class="license-description">Department of
+                                    Labour compliance certificate</div>
+                            </td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                                <div class="payment-status paid">
+                                    <span class="icon">💳</span>
+                                    R300 - Paid
+                                </div>
+                            </td>
+                            <td class="expiry-date">2026-01-20</td>
+                            <td><button class="download-btn"
+                                    onclick="downloadLicense('labour-cert')">Download
+                                    PDF</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <style>
+
+            .container {
+                max-width: 100%;
+                background: #ffab1f;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+             
+            }
+    
+            h1 {
+                text-align: center;
+                color: white;
+                margin-bottom: 30px;
+                font-size: 4rem;
+                font-weight: 300;
+                position: relative;
+            }
+    
+
+            .table-container {
+                overflow-x: auto;
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            table {
+                width: 90%;
+                background: white;
+                border: #797878;
+            }
+    
+            th {
+                background: #00a7cf;
+                color: white;
+                padding: 20px 15px;
+                text-align: left;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                font-size: 0.9rem;
+                border-right: 1px solid #797878a8;
+            }
+    
+    
+            td {
+                padding: 18px 15px;
+                border-bottom: 1px solid #797878;
+                border-right: 1px solid #797878;
+            }
+    
+            tr:last-child td {
+                border-bottom: 1px solid #000000;
+            }
+    
+            .status {
+                display: inline-block;
+                padding: 8px 16px;
+                border-radius: 25px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+    
+            .status.active {
+                background: linear-gradient(135deg, #4ade80, #22c55e);
+                color: white;
+            }
+    
+            .status.pending {
+                background: linear-gradient(135deg, #fbbf24, #f59e0b);
+                color: white;
+            }
+    
+            .status.expired {
+                background: linear-gradient(135deg, #ef4444, #dc2626);
+                color: white;
+            }
+    
+            .status.draft {
+                background: linear-gradient(135deg, #94a3b8, #64748b);
+                color: white;
+            }
+    
+            .payment-status {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 600;
+            }
+    
+            .payment-status.paid {
+                color: #059669;
+            }
+    
+            .payment-status.unpaid {
+                color: #dc2626;
+            }
+    
+            .payment-status.free {
+                color: #7c3aed;
+            }
+    
+            .download-btn {
+                background: #00a7cf;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: 600;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+    
+
+    
+            .download-btn:disabled {
+                background: #cbd5e1;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+    
+            .license-type {
+                font-weight: 600;
+                color: #374151;
+            }
+    
+            .license-description {
+                color: #6b7280;
+                font-size: 0.9rem;
+                margin-top: 4px;
+            }
+    
+            .expiry-date {
+                font-weight: 600;
+            }
+    
+            .expiry-soon {
+                color: #f59e0b;
+            }
+    
+            .icon {
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+            }
+    
+            @media (max-width: 768px) {
+                .container {
+                    padding: 20px;
+                }
+                
+                h1 {
+                    font-size: 2rem;
+                }
+                
+                th, td {
+                    padding: 12px 10px;
+                    font-size: 0.85rem;
+                }
+                
+                .download-btn {
+                    padding: 8px 16px;
+                    font-size: 0.75rem;
+                }
+            }
+        </style>
+            <footer>
+                <span>
+                    Copyright 2025 City of Cape Town. All rights reserved.
+                </span>
+            </footer>
+        </body>
+
+    </html>
