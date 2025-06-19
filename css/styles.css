@@ -124,7 +124,6 @@ footer span {
 }
 
 .img-container img {
-    height: 400px;
     border-radius: 10px;
 }
 
@@ -137,8 +136,8 @@ footer span {
     top: 20%;
     border-radius: 10px;
     outline: 2px solid gray;
-
 }
+
 
 .options {
     display: flex;
@@ -167,7 +166,7 @@ footer span {
     pointer-events: none;
 }
 
-.close-btn {
+.close-btn-popup {
     width: 30px;
     background-color: inherit;
     position: absolute;
@@ -178,7 +177,7 @@ footer span {
 
 }
 
-.close-btn img {
+.close-btn-popup img {
     width: 30px;
     filter: brightness(0) saturate(100%) invert(12%) sepia(92%) saturate(4341%) hue-rotate(349deg) brightness(94%) contrast(124%);
 }
@@ -227,7 +226,7 @@ footer span {
 /* Dashboard Specific Styles */
 .header {
     background-color: var(--background-clr);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-1 {
@@ -280,14 +279,14 @@ footer span {
     align-items: center;
 }
 
-.icons > * {
+.icons>* {
     font-size: 20px;
     color: #333;
     cursor: pointer;
     transition: color 0.3s;
 }
 
-.icons > *:hover {
+.icons>*:hover {
     color: var(--secondary-clr);
 }
 
@@ -325,14 +324,14 @@ footer span {
     background: var(--background-clr);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .stat-icon {
@@ -357,7 +356,7 @@ footer span {
     background: var(--background-clr);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
 }
 
@@ -388,7 +387,7 @@ footer span {
 
 .action-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     color: var(--background-clr);
 }
 
@@ -412,13 +411,13 @@ footer span {
     background: var(--background-clr);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .recent-activity h2 {
     color: #333;
     margin-bottom: 30px;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .activity-item {
@@ -465,24 +464,28 @@ footer span {
     white-space: nowrap;
 }
 
+.recent-activity p {
+    font-size: 20px;
+}
+
 @media (max-width: 768px) {
     .dashboard-container {
         padding: 20px;
     }
-    
+
     .dashboard-header h1 {
         font-size: 2.5rem;
     }
-    
+
     .stats-grid,
     .action-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .header-2 {
         padding: 15px 20px;
     }
-    
+
     .navbar {
         gap: 15px;
     }
