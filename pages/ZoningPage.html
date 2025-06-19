@@ -209,108 +209,111 @@
   }
 };
 
-      const chatbox = document.getElementById('chatbox');
-      const input = document.getElementById('userInput');
-      let step = 0;
-      let topic = '';
-      let businessData = {};
+const chatbox = document.getElementById('chatbox');
+  const input = document.getElementById('userInput');
+  let step = 0;
 
-      function addMessage(text, sender = 'bot') {
-         const div = document.createElement('div');
-         div.classList.add('message', sender);
-         div.innerHTML = text;
-         chatbox.appendChild(div);
-         chatbox.scrollTop = chatbox.scrollHeight;
+  function getZoningList() {
+    return Object.keys(zoningTypes)
+      .map((key, i) => `${i + 1}. <strong>${key}</strong> — ${zoningTypes[key].short}`)
+      .join('<br>');
+  }
+
+  function parseZoningInput(input) {
+    const names = Object.keys(zoningTypes);
+    const num = parseInt(input);
+    if (!isNaN(num) && num >= 1 && num <= names.length) {
+      return names[num - 1];
+    }
+    return names.find(name => name.toLowerCase() === input.toLowerCase()) || null;
+  }
+
+  function checkForMusicQuery(text) {
+    const keywords = ['music', 'noise', 'sound', 'amplified', 'loud', 'mobile food truck', 'hawker', 'playing music'];
+    return keywords.some(k => text.includes(k));
+  }
+
+  function addMessage(text, sender = 'bot') {
+    const div = document.createElement('div');
+    div.classList.add('message', sender);
+    div.innerHTML = text;
+    chatbox.appendChild(div);
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  function startChat() {
+    addMessage("Hi! 👋 Do you know your property's zoning? (Type 'yes' or 'no')");
+    step = 1;
+  }
+
+  function handleStep(inputText) {
+    const text = inputText.trim().toLowerCase();
+
+    if (step === 1) {
+    if (text === 'yes') {
+      addMessage("Great! You can type the zoning type or number, or type 'list' to see options.");
+      step = 2;
+    } else if (text === 'no') {
+      addMessage("You can view the official zoning map here: <a href='https://citymaps.capetown.gov.za/EGISViewer/' target='_blank'>Zoning Map</a>");
+      addMessage("Once you know it, type it here or type 'list' to see all zoning types.");
+      step = 2;
+    } else {
+      addMessage("Please reply with 'yes' or 'no' 😊");
+    }
+
+  } else if (step === 2) {
+    if (text === 'list') {
+      addMessage("Here are the zoning types:<br>" + getZoningList());
+    } else {
+      const zoningName = parseZoningInput(text);
+      if (zoningName) {
+        userZoning = zoningName;
+        addMessage(zoningTypes[zoningName].details);
+        addMessage("What type of business are you planning to operate? (e.g. food truck, spa, retail shop, nightclub)");
+        step = 3;
+      } else {
+        addMessage("Sorry, I didn’t understand. Try typing 'list' or a zoning name.");
+      }
+    }
+
+  } else if (step === 3) {
+    businessType = text;
+
+    if (checkForMusicQuery(text) || text.includes("mobile") || text.includes("music")) {
+      let message = `🎵 <strong>Impact of Music on Zoning</strong><br><br>`;
+
+      if (userZoning === "Community") {
+        message += `🔇 In a <strong>Community Zone</strong>:<br>
+        - Loud or amplified music is generally <em>not permitted</em>.<br>
+        - You may need to apply for special consent or a noise exemption.<br>`;
+      } else {
+        message += `📌 Zoning impact depends on the area and noise bylaws. Music may be allowed with permits in some zones.<br>`;
       }
 
-      function getZoningList() {
-         return Object.keys(zoningTypes)
-            .map((key, i) => `${i + 1}. <strong>${key}</strong> — ${zoningTypes[key].short}`)
-            .join('<br>');
+      if (text.includes("food truck")) {
+        message += `<br>🚚 <strong>Mobile Coffee Truck</strong>:<br>
+        - Must comply with the City's <a href="https://www.capetown.gov.za/City-Connect/Apply/Planning-building-and-development/Land-use-applications/Noise-control" target="_blank">Noise Control Bylaw</a>.<br>
+        - Playing loud music is often restricted in residential or community zones.<br>
+        - You may need a permit for any sound equipment or events.`;
       }
 
-      function parseZoningInput(input) {
-         const names = Object.keys(zoningTypes);
-         const num = parseInt(input);
-         if (!isNaN(num) && num >= 1 && num <= names.length) {
-            return names[num - 1];
-         }
-         return names.find(name => name.toLowerCase() === input.toLowerCase()) || null;
-      }
+      addMessage(message);
+    } else {
+      addMessage("✅ Thank you! Based on your zoning and business type, you can contact the City for further compliance steps or licensing info.");
+    }
+  }
+}
 
-      function startChat() {
-         addMessage("Hi! 👋 Would you like help with <strong>Zoning Info</strong> or <strong>Business Licence</strong>? (Type 'zoning' or 'licence')");
-         step = 0;
-      }
+  startChat();
 
-      function handleStep(inputText) {
-         const text = inputText.trim().toLowerCase();
-
-         if (step === 0) {
-            if (text.includes('zoning')) {
-               topic = 'zoning';
-               addMessage("Do you know your property's zoning? (Type 'yes' or 'no')");
-               step = 1;
-            } else if (text.includes('licence')) {
-               topic = 'licence';
-               addMessage("Is your business <strong>home-based</strong> or <strong>commercial</strong>?");
-               step = 100;
-            } else {
-               addMessage("Please reply with either 'zoning' or 'licence'.");
-            }
-         } else if (topic === 'zoning') {
-            if (step === 1) {
-               if (text === 'yes') {
-                  addMessage("Great! You can type the zoning type or number, or type 'list' to see options.");
-                  step = 2;
-               } else if (text === 'no') {
-                  addMessage("You can view your zoning on the <a href='https://citymaps.capetown.gov.za/EGISViewer/' target='_blank'>Zoning Map</a>. Then type your zoning type or 'list' to see all.");
-                  step = 2;
-               } else {
-                  addMessage("Please type 'yes' or 'no'.");
-               }
-            } else if (step === 2) {
-               if (text === 'list') {
-                  addMessage("Here are the zoning types:<br>" + getZoningList());
-               } else {
-                  const zoningName = parseZoningInput(text);
-                  if (zoningName) {
-                     addMessage(zoningTypes[zoningName].details);
-                  } else {
-                     addMessage("Sorry, I didn’t understand. Try typing 'list' or a zoning name.");
-                  }
-               }
-            }
-         } else if (topic === 'licence') {
-            if (step === 100) {
-               businessData.type = text;
-               addMessage("What kind of business are you planning to start?");
-               step = 101;
-            } else if (step === 101) {
-               businessData.kind = text;
-               addMessage(`📋 Based on your inputs:<br>Type: <strong>${businessData.type}</strong><br>Business: <strong>${businessData.kind}</strong>`);
-               addMessage("✅ You may need a <strong>Consent Use</strong> or <strong>Rezoning</strong>. Check the zoning map and apply here:");
-               addMessage(`<a href='https://www.capetown.gov.za/City-Connect/Apply/Planning-building-and-development/Land-use-applications/Apply-for-land-use' target='_blank'>Apply for Land Use</a>`);
-               addMessage("To restart, type <strong>restart</strong>.");
-               step = 102;
-            } else if (step === 102 && text === 'restart') {
-               step = 0;
-               startChat();
-            }
-         }
-      }
-
-      input.addEventListener('keydown', e => {
-         if (e.key === 'Enter' && input.value.trim() !== '') {
-            const userText = input.value.trim();
-            addMessage(userText, 'user');
-            input.value = '';
-            setTimeout(() => handleStep(userText), 300);
-         }
-      });
-
-      // Start
-      startChat();
-   </script>
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && input.value.trim() !== '') {
+      const userText = input.value.trim();
+      addMessage(userText, 'user');
+      input.value = '';
+      setTimeout(() => handleStep(userText), 300);
+    }
+  });
+  </script>
 </body>
 </html>
