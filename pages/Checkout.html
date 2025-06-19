@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Eazy Permit</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-            crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/styles.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-            crossorigin="anonymous"></script>
-        <script type="module" src="../js/main.js"></script>
-        <header class="header">
-            <div class="header-1">
-                <div class="flex">
-                    <img src="../assets/img/profile.svg" alt>
-                    <p>
-                        <a href="login.html">login /</a>
-                        <a href="register.html">register</a>
-                    </p>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eazy Permit</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon"
+      href="/assets/img/cct-logo-small.svg">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+    <script type="module" src="../js/main.js"></script>
+    <header class="header">
+      <div class="header-1">
+        <div class="flex">
+          <img src="../assets/img/profile.svg" alt>
+          <p>
+            <a href="login.html">login /</a>
+            <a href="register.html">register</a>
+          </p>
+        </div>
+      </div>
 
-            <div class="header-2">
-                <a href="landing-page.html" class="logo">
-                    <img width="230px" height="201px"
-                        src="../assets/img/cct-logo.svg" type="images/jpg"
-                        alt="CCT Logo" />
-                </a>
+      <div class="header-2">
+        <a href="landing-page.html" class="logo">
+          <img width="230px" height="201px"
+            src="../assets/img/cct-logo.svg" type="images/jpg"
+            alt="CCT Logo" />
+        </a>
 
-                <nav class="navbar">
-                    <!-- navigation links -->
-                    <a href="../pages/dashboard.html">Dashboard</a>
-                    <a href = "../pages/ZoningPage.html">Zoning Info</a>
-                    <a href = "../pages/contact page.html">Contact us</a>
-                    <a href = "../pages/Checkout.html">Pay Bills</a>
-                </nav>
-                <br><br>
+        <nav class="navbar">
+          <!-- navigation links -->
+          <a href="../pages/dashboard.html">Dashboard</a>
+          <a href="../pages/ZoningPage.html">Zoning Info</a>
+          <a href="../pages/contact page.html">Contact us</a>
+          <a href="../pages/Checkout.html">Pay Bills</a>
+        </nav>
+        <br><br>
 
-              
-        </header>
-  <style>
+      </header>
+      <style>
     body {
       font-family: Arial, sans-serif;
       padding: 30px;
@@ -145,195 +146,224 @@
       justify-content: space-between;
     }
   </style>
-</head>
-<body>
+    </head>
+    <body>
 
-<div class="container">
+      <div class="container">
 
-  <!-- Progress Steps -->
-  <div class="progress-bar">
-    <div class="progress-step active" id="step-label-1">Bank Details</div>
-    <div class="progress-step" id="step-label-2">Proof of Payment</div>
-  </div>
+        <!-- Progress Steps -->
+        <div class="progress-bar">
+          <div class="progress-step active" id="step-label-1">Bank Details</div>
+          <div class="progress-step" id="step-label-2">Proof of Payment</div>
+        </div>
 
-  <!-- Step 1: Bank Info -->
-  <div id="step-1">
-    <h2>Payment Information</h2>
-    <p>Please make separate payments to the relevant departments using the methods below. Ensure you keep your proof of payment for each.</p>
-   
-    <ul>
-      <li><strong>Cash, Debit, Credit Card:</strong> Accepted at our offices. No bank charges on single payments ≤ R7000.</li>
-      <li><strong>Direct Deposit (ABSA Bank):</strong> Use your 9-digit reference number on the deposit slip.</li>
-      <li><strong>Electronic Funds Transfer (EFT):</strong> Select <strong>City of Cape Town</strong> as the listed beneficiary and use your 9-digit reference number.</li>
-    </ul>
+        <!-- Step 1: Bank Info -->
+        <div id="step-1">
+          <h2>Payment Information</h2>
+          <p>Please make separate payments to the relevant departments using the
+            methods below. Ensure you keep your proof of payment for each.</p>
 
-    <h3>Bank Account Details</h3>
-    <table>
-      <tr>
-        <th>Field</th>
-        <th>Details</th>
-      </tr>
-      <tr>
-        <td>Bank Name</td>
-        <td>ABSA Bank</td>
-      </tr>
-      <tr>
-        <td>Branch Code</td>
-        <td>632005</td>
-      </tr>
-      <tr>
-        <td>Account Type</td>
-        <td>Current</td>
-      </tr>
-      <tr>
-        <td>Account Name</td>
-        <td>City of Cape Town Licensing</td>
-      </tr>
-      <tr>
-        <td>Account Number</td>
-        <td>1234567890</td>
-      </tr>
-      <tr>
-        <td>Reference Number</td>
-        <td>Use your 9-digit application reference number (e.g., <strong>BL-202500123</strong>)</td>
-      </tr>
-    </table>
+          <ul>
+            <li><strong>Cash, Debit, Credit Card:</strong> Accepted at our
+              offices. No bank charges on single payments ≤ R7000.</li>
+            <li><strong>Direct Deposit (ABSA Bank):</strong> Use your 9-digit
+              reference number on the deposit slip.</li>
+            <li><strong>Electronic Funds Transfer (EFT):</strong> Select
+              <strong>City of Cape Town</strong> as the listed beneficiary and
+              use your 9-digit reference number.</li>
+          </ul>
 
-    <div class="button-group">
-      <span></span>
-      <button type="button" onclick="nextStep()">Next</button>
-    </div>
-  </div>
+          <h3>Bank Account Details</h3>
+          <table>
+            <tr>
+              <th>Field</th>
+              <th>Details</th>
+            </tr>
+            <tr>
+              <td>Bank Name</td>
+              <td>ABSA Bank</td>
+            </tr>
+            <tr>
+              <td>Branch Code</td>
+              <td>632005</td>
+            </tr>
+            <tr>
+              <td>Account Type</td>
+              <td>Current</td>
+            </tr>
+            <tr>
+              <td>Account Name</td>
+              <td>City of Cape Town Licensing</td>
+            </tr>
+            <tr>
+              <td>Account Number</td>
+              <td>1234567890</td>
+            </tr>
+            <tr>
+              <td>Reference Number</td>
+              <td>Use your 9-digit application reference number (e.g.,
+                <strong>BL-202500123</strong>)</td>
+            </tr>
+          </table>
 
-  <!-- Step 2: Uploads -->
-  <div id="step-2" class="hidden">
-    <h2>Upload Proof of Payments</h2>
+          <div class="button-group">
+            <span></span>
+            <button type="button" onclick="nextStep()">Next</button>
+          </div>
+        </div>
 
-    <div class="progress-bar" id="paymentProgress" style="margin-bottom:20px;">
-      <div class="progress-step" id="progress-health">Health</div>
-      <div class="progress-step" id="progress-fire">Fire</div>
-      <div class="progress-step" id="progress-zoning">Zoning</div>
-      <div class="progress-step" id="progress-waste">Waste</div>
-    </div>
+        <!-- Step 2: Uploads -->
+        <div id="step-2" class="hidden">
+          <h2>Upload Proof of Payments</h2>
 
-    <form id="paymentForm">
-      <table>
-        <thead>
-          <tr>
-            <th>Department</th>
-            <th>Amount</th>
-            <th>Reference</th>
-            <th>Method</th>
-            <th>Card Details (if Card selected)</th>
-            <th>Proof of Payment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Health -->
-          <tr>
-            <td>Health Department</td>
-            <td>R300</td>
-            <td>123456789-H</td>
-            <td>
-              <select name="methodHealth" required onchange="toggleCardFields(this, 'health')">
-                <option value="">Select</option>
-                <option>Card</option>
-                <option>EFT</option>
-              </select>
-            </td>
-            <td>
-              <div class="card-section hidden" id="card-health">
-                <input type="text" name="healthCardName" placeholder="Cardholder Name" />
-                <input type="text" name="healthCardNumber" maxlength="16" placeholder="Card Number" />
-                <input type="month" name="healthCardExpiry" />
-                <input type="text" name="healthCardCVV" maxlength="3" placeholder="CVV" />
-              </div>
-            </td>
-            <td><input type="file" name="proofHealth" accept=".pdf,image/*" required onchange="markCompleted('health')"></td>
-          </tr>
+          <div class="progress-bar" id="paymentProgress"
+            style="margin-bottom:20px;">
+            <div class="progress-step" id="progress-health">Health</div>
+            <div class="progress-step" id="progress-fire">Fire</div>
+            <div class="progress-step" id="progress-zoning">Zoning</div>
+            <div class="progress-step" id="progress-waste">Waste</div>
+          </div>
 
-          <!-- Fire Safety -->
-          <tr>
-            <td>Fire Safety</td>
-            <td>R250</td>
-            <td>123456789-F</td>
-            <td>
-              <select name="methodFire" required onchange="toggleCardFields(this, 'fire')">
-                <option value="">Select</option>
-                <option>Card</option>
-                <option>EFT</option>
-              </select>
-            </td>
-            <td>
-              <div class="card-section hidden" id="card-fire">
-                <input type="text" name="fireCardName" placeholder="Cardholder Name" />
-                <input type="text" name="fireCardNumber" maxlength="16" placeholder="Card Number" />
-                <input type="month" name="fireCardExpiry" />
-                <input type="text" name="fireCardCVV" maxlength="3" placeholder="CVV" />
-              </div>
-            </td>
-            <td><input type="file" name="proofFire" accept=".pdf,image/*" required onchange="markCompleted('fire')"></td>
-          </tr>
+          <form id="paymentForm">
+            <table>
+              <thead>
+                <tr>
+                  <th>Department</th>
+                  <th>Amount</th>
+                  <th>Reference</th>
+                  <th>Method</th>
+                  <th>Card Details (if Card selected)</th>
+                  <th>Proof of Payment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Health -->
+                <tr>
+                  <td>Health Department</td>
+                  <td>R300</td>
+                  <td>123456789-H</td>
+                  <td>
+                    <select name="methodHealth" required
+                      onchange="toggleCardFields(this, 'health')">
+                      <option value>Select</option>
+                      <option>Card</option>
+                      <option>EFT</option>
+                    </select>
+                  </td>
+                  <td>
+                    <div class="card-section hidden" id="card-health">
+                      <input type="text" name="healthCardName"
+                        placeholder="Cardholder Name" />
+                      <input type="text" name="healthCardNumber" maxlength="16"
+                        placeholder="Card Number" />
+                      <input type="month" name="healthCardExpiry" />
+                      <input type="text" name="healthCardCVV" maxlength="3"
+                        placeholder="CVV" />
+                    </div>
+                  </td>
+                  <td><input type="file" name="proofHealth"
+                      accept=".pdf,image/*" required
+                      onchange="markCompleted('health')"></td>
+                </tr>
 
-          <!-- Zoning & Planning -->
-          <tr>
-            <td>Zoning & Planning</td>
-            <td>R200</td>
-            <td>123456789-Z</td>
-            <td>
-              <select name="methodZoning" required onchange="toggleCardFields(this, 'zoning')">
-                <option value="">Select</option>
-                <option>Cash</option>
-                <option>Card</option>
-                <option>EFT</option>
-              </select>
-            </td>
-            <td>
-              <div class="card-section hidden" id="card-zoning">
-                <input type="text" name="zoningCardName" placeholder="Cardholder Name" />
-                <input type="text" name="zoningCardNumber" maxlength="16" placeholder="Card Number" />
-                <input type="month" name="zoningCardExpiry" />
-                <input type="text" name="zoningCardCVV" maxlength="3" placeholder="CVV" />
-              </div>
-            </td>
-            <td><input type="file" name="proofZoning" accept=".pdf,image/*" required onchange="markCompleted('zoning')"></td>
-          </tr>
+                <!-- Fire Safety -->
+                <tr>
+                  <td>Fire Safety</td>
+                  <td>R250</td>
+                  <td>123456789-F</td>
+                  <td>
+                    <select name="methodFire" required
+                      onchange="toggleCardFields(this, 'fire')">
+                      <option value>Select</option>
+                      <option>Card</option>
+                      <option>EFT</option>
+                    </select>
+                  </td>
+                  <td>
+                    <div class="card-section hidden" id="card-fire">
+                      <input type="text" name="fireCardName"
+                        placeholder="Cardholder Name" />
+                      <input type="text" name="fireCardNumber" maxlength="16"
+                        placeholder="Card Number" />
+                      <input type="month" name="fireCardExpiry" />
+                      <input type="text" name="fireCardCVV" maxlength="3"
+                        placeholder="CVV" />
+                    </div>
+                  </td>
+                  <td><input type="file" name="proofFire" accept=".pdf,image/*"
+                      required onchange="markCompleted('fire')"></td>
+                </tr>
 
-          <!-- Waste Management -->
-          <tr>
-            <td>Waste Management</td>
-            <td>R100</td>
-            <td>123456789-W</td>
-            <td>
-              <select name="methodWaste" required onchange="toggleCardFields(this, 'waste')">
-                <option value="">Select</option>
-                <option>Cash</option>
-                <option>Card</option>
-                <option>EFT</option>
-              </select>
-            </td>
-            <td>
-              <div class="card-section hidden" id="card-waste">
-                <input type="text" name="wasteCardName" placeholder="Cardholder Name" />
-                <input type="text" name="wasteCardNumber" maxlength="16" placeholder="Card Number" />
-                <input type="month" name="wasteCardExpiry" />
-                <input type="text" name="wasteCardCVV" maxlength="3" placeholder="CVV" />
-              </div>
-            </td>
-            <td><input type="file" name="proofWaste" accept=".pdf,image/*" required onchange="markCompleted('waste')"></td>
-          </tr>
-        </tbody>
-      </table>
+                <!-- Zoning & Planning -->
+                <tr>
+                  <td>Zoning & Planning</td>
+                  <td>R200</td>
+                  <td>123456789-Z</td>
+                  <td>
+                    <select name="methodZoning" required
+                      onchange="toggleCardFields(this, 'zoning')">
+                      <option value>Select</option>
+                      <option>Cash</option>
+                      <option>Card</option>
+                      <option>EFT</option>
+                    </select>
+                  </td>
+                  <td>
+                    <div class="card-section hidden" id="card-zoning">
+                      <input type="text" name="zoningCardName"
+                        placeholder="Cardholder Name" />
+                      <input type="text" name="zoningCardNumber" maxlength="16"
+                        placeholder="Card Number" />
+                      <input type="month" name="zoningCardExpiry" />
+                      <input type="text" name="zoningCardCVV" maxlength="3"
+                        placeholder="CVV" />
+                    </div>
+                  </td>
+                  <td><input type="file" name="proofZoning"
+                      accept=".pdf,image/*" required
+                      onchange="markCompleted('zoning')"></td>
+                </tr>
 
-      <div class="button-group">
-        <button type="button" onclick="prevStep()">Back</button>
-        <button type="submit">Submit All Payments</button>
+                <!-- Waste Management -->
+                <tr>
+                  <td>Waste Management</td>
+                  <td>R100</td>
+                  <td>123456789-W</td>
+                  <td>
+                    <select name="methodWaste" required
+                      onchange="toggleCardFields(this, 'waste')">
+                      <option value>Select</option>
+                      <option>Cash</option>
+                      <option>Card</option>
+                      <option>EFT</option>
+                    </select>
+                  </td>
+                  <td>
+                    <div class="card-section hidden" id="card-waste">
+                      <input type="text" name="wasteCardName"
+                        placeholder="Cardholder Name" />
+                      <input type="text" name="wasteCardNumber" maxlength="16"
+                        placeholder="Card Number" />
+                      <input type="month" name="wasteCardExpiry" />
+                      <input type="text" name="wasteCardCVV" maxlength="3"
+                        placeholder="CVV" />
+                    </div>
+                  </td>
+                  <td><input type="file" name="proofWaste" accept=".pdf,image/*"
+                      required onchange="markCompleted('waste')"></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="button-group">
+              <button type="button" onclick="prevStep()">Back</button>
+              <button type="submit">Submit All Payments</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </form>
-  </div>
-</div>
 
-<script>
+      <script>
   function nextStep() {
     document.getElementById('step-1').classList.add('hidden');
     document.getElementById('step-2').classList.remove('hidden');
@@ -372,5 +402,5 @@
   });
 </script>
 
-</body>
-</html>
+    </body>
+  </html>
