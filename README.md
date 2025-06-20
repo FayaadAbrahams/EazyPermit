@@ -52,7 +52,7 @@ As a front-end developer, I focused on:
 ## 🔗 Demo & Code
 
 Run ```npm install```
-Then ```npm run dev```
+then ```npm run dev```
 ## 📢 Presentation
 
 The final prototype was presented to a panel of stakeholders and peers, highlighting:
