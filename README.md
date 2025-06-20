@@ -51,9 +51,8 @@ As a front-end developer, I focused on:
 
 ## 🔗 Demo & Code
 
-- **GitHub Repository:** [Tic-Tac-Toe Repo](https://github.com/FayaadAbrahams/Tic-Tac-Toe)  
-  > _(Note: Please update the repository name/link if this project is separate from the Tic Tac Toe one.)_
-
+Run ```npm install```
+Then ```npm run dev```
 ## 📢 Presentation
 
 The final prototype was presented to a panel of stakeholders and peers, highlighting:
