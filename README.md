@@ -13,15 +13,19 @@ Our team was a diverse group consisting of:
 - UI/UX Designer
 - Business Analysts
 - Project Managers
-
+  
 Working collaboratively, we transformed a community problem into a functional prototype within just 48 hours.
+
+## 📃Presentation Documentation
+[EazyPermit Portal Presentation 2025.pptx](https://github.com/user-attachments/files/20834007/EazyPermit.Portal.Presentation.2025.pptx)
 
 ## 🚀 Features
 
 - Responsive layout for mobile and desktop
 - Clean UI built with accessibility in mind
 - Real-time feedback interaction
-- Modular and scalable codebase for future enhancements
+- Modular and scalable codebase 
+for future enhancements
 
 ## 🛠️ Tech Stack
 
